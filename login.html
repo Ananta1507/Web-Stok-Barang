@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('login.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh; /* Pastikan tinggi halaman mencakup seluruh viewport */
+            display: flex; /* Agar konten berada di tengah */
+            justify-content: center; /* Mengatur konten ke tengah horizontal */
+            align-items: center; /* Mengatur konten ke tengah vertical */
+            margin: 0; /* Menghapus margin default */
+        }
+
+        .container {
+            background-color: rgba(21, 21, 21, 0.8); /* Latar belakang putih dengan transparansi */
+            padding: 30px; /* Padding di dalam container */
+            border-radius: 10px; /* Membuat sudut container membulat */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Memberikan bayangan pada container */
+        }
+
+        .login-admin{
+            color: white;
+            
+        }
+
+        .form-group{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="login-admin">Login Admin</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <a href="register.html" class="btn btn-secondary ml-2">Register Admin</a>
+            <button type="button" class="btn btn-light ml-2" onclick="window.history.back();">Back</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'admin' && password === 'admin123') {
+                window.location.href = 'admin.html';
+            } else {
+                alert('Username atau Password salah');
+            }
+        });
+    </script>
+</body>
+</html>

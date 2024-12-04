@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+       body {
+        background-image: url('vape2.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 30px;
+    }
+    h1 {
+        text-align: center;
+        color: white;
+    }
+    button {
+        color: blueviolet;
+        background-color: #c9d6ff;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        border: none;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    button:hover {
+        text-decoration: underline;
+        color: blue;
+        background-color: #a0a9f0;
+        transform: scale(1.05);
+    }
+    .container {
+        margin-top: 20px;
+    }
+    .content-container {
+        background-color: rgba(0, 0, 0, 0.9); /* Latar belakang hitam dengan transparansi 50% */
+        padding: 20px;
+        border-radius: 10px;
+        color: white;
+    }
+
+    .table thead th {
+        color: #fff; /* Warna teks pada header tabel */
+        background-color: rgba(0, 0, 0, 0.7); /* Memberikan kontras lebih pada header */
+    }
+
+    .table tbody td {
+        color: #ddd; /* Warna teks pada baris-baris tabel */
+        transition: background-color 0.3s ease;
+    }
+
+    .table tbody tr:hover td {
+        background-color: rgba(255, 255, 255, 0.1); /* Efek hover pada baris tabel */
+    }
+
+    .navbar {
+        background-color: rgba(0, 0, 0, 0.8); /* Navbar dengan latar belakang hitam transparan */
+    }
+
+    .navbar .navbar-brand,
+    .navbar .nav-link {
+        color: rgb(0, 0, 0) !important;
+    }
+
+    .navbar .nav-link:hover {
+        color: #f8179e !important; /* Warna teks lebih terang saat hover */
+    }
+
+    /* Responsif untuk tampilan kecil */
+    @media (max-width: 768px) {
+        .container {
+            padding: 15px;
+        }
+
+        button {
+            font-size: 1rem;
+            padding: 8px;
+        }
+
+        .content-container {
+            padding: 15px;
+        }
+
+        .table thead th, .table tbody td {
+            font-size: 0.9rem;
+        }
+    }
+
+    /* Gambar di navbar */
+    .navbar .navbar-nav {
+        flex-grow: 1;
+        text-align: right;
+    }
+    .navbar img {
+        width: 60px;
+        height: 50px;
+    }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <span style="color: rgb(13, 135, 217); font-weight: bold;">SEKAWAN</span><span style="color: rgb(196, 40, 40); font-weight: bold;">MEDIA</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Beranda <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Admin E-Commerce</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Fitur</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Helpdesk</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Logout</a>
+                </li>
+            </ul>
+            <img src="javavapor1.png" alt="Logo Perusahaan">
+        </div>
+    </nav>
+
+    <div class="container-fluid content-container">
+        <h2>Manajemen Stok Barang</h2>
+        <form id="employeeForm">
+            <input type="hidden" id="employeeId">
+            <div class="form-group">
+                <label for="name">Nama Barang</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Jenis Barang</label>
+                <select class="form-control" id="gender" required>
+                    <option value="">Pilih Jenis Barang</option>
+                    <option value="Software">Software</option>
+                    <option value="Hardware">Hardware</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="division">Stok Barang</label>
+                <input type="text" class="form-control" id="division" required>
+            </div>
+            <div class="form-group">
+                <label for="employeeNumber">Id Barang</label>
+                <input type="text" class="form-control" id="employeeNumber" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" id="submitButton">Tambah Barang</button>
+        </form>
+
+        <h3 class="mt-4">Daftar Karyawan</h3>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nama Barang</th>
+                        <th>Jenis Barang</th>
+                        <th>Stok Barangk</th>
+                        <th>Id Barang</th>
+                        <th>Barang Masuk (Diisi Oleh Divisi Gudang)</th>
+                        <th>Barang Keluar (Diisi Oleh Divisi E-Commerce)</th>
+                        <th>Opsi</th>
+                    </tr>
+                </thead>
+                <tbody id="employeeTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let employees = [];
+        const employeeForm = document.getElementById('employeeForm');
+        const employeeTableBody = document.getElementById('employeeTableBody');
+        const submitButton = document.getElementById('submitButton');
+        const employeeId = document.getElementById('employeeId');
+
+        function saveToLocalStorage() {
+            localStorage.setItem('employees', JSON.stringify(employees));
+        }
+
+        function loadFromLocalStorage() {
+            const storedEmployees = localStorage.getItem('employees');
+            if (storedEmployees) {
+                employees = JSON.parse(storedEmployees);
+            }
+        }
+
+        function renderEmployeeTable() {
+            employeeTableBody.innerHTML = '';
+            employees.forEach((emp) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${emp.name}</td>
+                    <td>${emp.gender}</td>
+                    <td>${emp.division}</td>
+                    <td>${emp.employeeNumber}</td>
+                    <td>${emp.checkInTime || 'Belum Dicatat'}</td>
+                    <td>${emp.checkOutTime || 'Belum Dicatat'}</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm" onclick="editEmployee(${emp.id})">Edit</button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteEmployee(${emp.id})">Delete</button>
+                        <button class="btn btn-secondary btn-sm" onclick="recordCheckOut(${emp.id})">Rekam Pulang</button>
+                    </td>
+                `;
+                employeeTableBody.appendChild(row);
+            });
+        }
+
+        employeeForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const gender = document.getElementById('gender').value;
+            const division = document.getElementById('division').value;
+            const employeeNumber = document.getElementById('employeeNumber').value;
+
+            if (employeeId.value) {
+                employees = employees.map(emp => emp.id == employeeId.value ? { ...emp, name, gender, division, employeeNumber } : emp);
+                submitButton.textContent = 'Tambah Karyawan';
+                employeeId.value = '';
+            } else {
+                const newEmployee = {
+                    id: Date.now(),
+                    name,
+                    gender,
+                    division,
+                    employeeNumber,
+                    checkInTime: new Date().toLocaleString(),
+                    checkOutTime: ''
+                };
+                employees.push(newEmployee);
+            }
+
+            saveToLocalStorage();
+            loadFromLocalStorage();
+            renderEmployeeTable();
+
+            employeeForm.reset();
+        });
+
+        function deleteEmployee(id) {
+            employees = employees.filter(emp => emp.id !== id);
+            saveToLocalStorage();
+            loadFromLocalStorage();
+            renderEmployeeTable();
+        }
+
+        function editEmployee(id) {
+            const employee = employees.find(emp => emp.id === id);
+            if (employee) {
+                document.getElementById('name').value = employee.name;
+                document.getElementById('gender').value = employee.gender;
+                document.getElementById('division').value = employee.division;
+                document.getElementById('employeeNumber').value = employee.employeeNumber;
+                employeeId.value = employee.id;
+                submitButton.textContent = 'Perbarui Karyawan';
+            }
+        }
+
+        function recordCheckOut(id) {
+            const employee = employees.find(emp => emp.id === id);
+            if (employee && !employee.checkOutTime) {
+                employee.checkOutTime = new Date().toLocaleString();
+                saveToLocalStorage();
+                loadFromLocalStorage();
+                renderEmployeeTable();
+            }
+        }
+
+        loadFromLocalStorage();
+        renderEmployeeTable();
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
